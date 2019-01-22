@@ -1,0 +1,78 @@
+{
+  "localhost": {
+    "description": "This is your application",
+    "services": [{
+        "name": "development",
+        "type": "endpoint",
+        "endpoint": "http://localhost:3978/api/messages",
+        "appId": "",
+        "appPassword": "",
+        "id": "http://localhost:3978/api/messages"
+      },
+      {
+        "cloudName": "AzureCloud",
+        "type": "cloud",
+        "id": "370c4f9c-9370-496d-9267-85fe94a914b4",
+        "isDefault": true,
+        "name": "Free Trial",
+        "state": "Enabled",
+        "tenantId": "fefcc636-b925-4ee0-872e-7ab2cd1f6e96",
+        "user": {
+          "name": "iot.minh.nguyen@gmail.com",
+          "type": "admin"
+        }
+      },
+      {
+        "name": "ontrack",
+        "type": "webchat",
+        "subscriptionKey": "370c4f9c-9370-496d-9267-85fe94a914b4",
+        "appId": "dba982cb-07ad-45d2-b3dc-57a6ea642973",
+        "authoringKey": "XP9xeie0-hQ.cwA.btE.A5GUdMRg49aw136zXew8459m-L4wmYwnIiQLHzqwfaI",
+        "version": "0.1",
+        "region": "westus"
+      },
+      {
+        "name": "ontrack",
+        "type": "luis",
+        "subscriptionKey": "370c4f9c-9370-496d-9267-85fe94a914b4",
+        "appId": "bed911d8-4140-40ab-87e1-58a872a186ea",
+        "authoringKey": "80135abf3d4a4537a7ca43c916c1a491",
+        "version": "0.1",
+        "region": "westus"
+      },
+      {
+        "name": "ontrack",
+        "type": "qna",
+        "subscriptionKey": "370c4f9c-9370-496d-9267-85fe94a914b4",
+        "kbId": "7c31a6e5-b4de-4cbb-95cd-50282d190733",
+        "endpointKey": "27079b81-549a-4e1e-8fba-f4cb54906f15",
+        "hostname": "https://ontrackfaq.azurewebsites.net/qnamaker"
+      },
+      {
+        "name": "ontrackAppInsight",
+        "type": "appInsights",
+        "subscriptionId": "370c4f9c-9370-496d-9267-85fe94a914b4",
+        "tenantId": "",
+        "resourceGroup": "AI",
+        "serviceName": "AI-QnAMaker-ai",
+        "instrumentationKey": "2af6af63-8216-4a62-8dbb-3a932536f8c6",
+        "applicationId": "",
+        "apiKeys": {}
+      }
+    ],
+    "padlock": "",
+    "version": "0.1"
+  }
+}
+
+// # log into Azure
+// az login
+// ```
+// ```bash
+// # set you Azure subscription
+// az account set --subscription "<azure-subscription>"
+// ```
+// ```bash
+// # Create LUIS service application
+// msbot clone services --name "<your_bot_name>" --luisAuthoringKey <LUIS-authoring-key> --code-dir "." --location westus --sdkLanguage "Node" --folder deploymentScripts/msbotClone --verbose
+// ```
