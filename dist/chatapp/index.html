@@ -4,14 +4,13 @@
 <head>
   <meta charset="utf-8">
   <title>Chatapp</title>
-  <script src="https://cdn.botframework.com/botframework-webchat/master/webchat.js"></script>
-  <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
-
 
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+
+
 </head>
 
 <body>
@@ -48,7 +47,8 @@
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', "https://webchat.botframework.com/api/tokens", true);
-    xhr.setRequestHeader('Authorization', 'BotConnector ' + 'gtfZ0JZPdcM.cwA.3gc.z7czsPjILusjvpHSpTi8M1BXPq-VcDzY6RTbDy6sr8c');
+    xhr.setRequestHeader('Authorization', 'BotConnector ' +
+      'gtfZ0JZPdcM.cwA.3gc.z7czsPjILusjvpHSpTi8M1BXPq-VcDzY6RTbDy6sr8c');
     xhr.send();
     xhr.onreadystatechange = processRequest;
 
@@ -56,9 +56,13 @@
       if (xhr.readyState == 4 && xhr.status == 200) {
         var token = JSON.parse(xhr.responseText);
         window.WebChat.renderWebChat({
-          directLine: window.WebChat.createDirectLine({ token }),
+          directLine: window.WebChat.createDirectLine({
+            token
+          }),
           renderMarkdown: markdownIt.render.bind(markdownIt),
-          webSpeechPonyfillFactory: window.WebChat.createBrowserWebSpeechPonyfillFactory({ token }),
+          webSpeechPonyfillFactory: window.WebChat.createBrowserWebSpeechPonyfillFactory({
+            token
+          }),
           styleOptions,
           store,
         }, document.getElementById('webchat'));
@@ -66,6 +70,15 @@
     }
 
   </script>
-<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body>
+
+
+  <script src="https://cdn.botframework.com/botframework-webchat/master/webchat.js"></script>
+  <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
+  <script type="text/javascript" src="runtime.js"></script>
+  <script type="text/javascript" src="polyfills.js"></script>
+  <script type="text/javascript" src="styles.js"></script>
+  <script type="text/javascript" src="vendor.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+</body>
 
 </html>
