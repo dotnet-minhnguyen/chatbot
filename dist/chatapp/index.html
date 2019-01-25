@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>Chatapp</title>
+  <script src="https://cdn.botframework.com/botframework-webchat/master/webchat.js"></script>
+  <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
+
 
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
-
-
 </head>
 
 <body>
@@ -26,11 +27,7 @@
     .catch(function (error) { console.error(error); });
 </script> -->
   <!-- https://portal.azure.com/#@iotminhnguyengmail.onmicrosoft.com/resource/subscriptions/370c4f9c-9370-496d-9267-85fe94a914b4/resourceGroups/AI/providers/Microsoft.BotService/botServices/AI-QnaMaker-Web/test -->
-
-
-
-  <script src="https://cdn.botframework.com/botframework-webchat/master/webchat.js"></script>
-  <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
+  <div id="webchat" role="main"></div>
   <script>
     const styleOptions = {
       botAvatarImage: 'https://docs.microsoft.com/en-us/azure/bot-service/v4sdk/media/logo_bot.svg?view=azure-bot-service-4.0',
@@ -52,8 +49,7 @@
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', "https://webchat.botframework.com/api/tokens", true);
-    xhr.setRequestHeader('Authorization', 'BotConnector ' +
-      'gtfZ0JZPdcM.cwA.3gc.z7czsPjILusjvpHSpTi8M1BXPq-VcDzY6RTbDy6sr8c');
+    xhr.setRequestHeader('Authorization', 'BotConnector ' + 'gtfZ0JZPdcM.cwA.3gc.z7czsPjILusjvpHSpTi8M1BXPq-VcDzY6RTbDy6sr8c');
     xhr.send();
     xhr.onreadystatechange = processRequest;
 
@@ -61,13 +57,9 @@
       if (xhr.readyState == 4 && xhr.status == 200) {
         var token = JSON.parse(xhr.responseText);
         window.WebChat.renderWebChat({
-          directLine: window.WebChat.createDirectLine({
-            token
-          }),
+          directLine: window.WebChat.createDirectLine({ token }),
           renderMarkdown: markdownIt.render.bind(markdownIt),
-          webSpeechPonyfillFactory: window.WebChat.createBrowserWebSpeechPonyfillFactory({
-            token
-          }),
+          webSpeechPonyfillFactory: window.WebChat.createBrowserWebSpeechPonyfillFactory({ token }),
           styleOptions,
           store,
         }, document.getElementById('webchat'));
@@ -75,12 +67,6 @@
     }
 
   </script>
-
-  <script type="text/javascript" src="runtime.js"></script>
-  <script type="text/javascript" src="polyfills.js"></script>
-  <script type="text/javascript" src="styles.js"></script>
-  <script type="text/javascript" src="vendor.js"></script>
-  <script type="text/javascript" src="main.js"></script>
-</body>
+<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body>
 
 </html>

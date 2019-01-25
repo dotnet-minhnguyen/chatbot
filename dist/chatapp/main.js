@@ -67,7 +67,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n<div id=\"webchat\" role=\"main\"></div>\n<!-- <amplify-interactions bot=\"OntrackBot\" ></amplify-interactions> -->\n<!-- <p id=\"buttonBar\">\n  <a href=\"?ts=default\">Default grouping</a>\n  <a href=\"?ts=false\">Don't show timestamp</a>\n  <a href=\"?ts=0\">Don't group</a>\n  <a href=\"?ts=2000\">Group by 2 seconds</a>\n  <a href=\"?ts=300000\">Group by 5 minutes</a>\n</p> -->\n"
+module.exports = "<router-outlet></router-outlet>\n\n<!-- <amplify-interactions bot=\"OntrackBot\" ></amplify-interactions> -->\n<!-- <p id=\"buttonBar\">\n  <a href=\"?ts=default\">Default grouping</a>\n  <a href=\"?ts=false\">Don't show timestamp</a>\n  <a href=\"?ts=0\">Don't group</a>\n  <a href=\"?ts=2000\">Group by 2 seconds</a>\n  <a href=\"?ts=300000\">Group by 5 minutes</a>\n</p> -->\n"
 
 /***/ }),
 
