@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Chatapp</title>
+  <script src="https://cdn.botframework.com/botframework-webchat/master/webchat.js"></script>
+  <script src="https://unpkg.com/markdown-it@8.4.2/dist/markdown-it.min.js"></script>
+
+
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+</head>
+
+<body>
+  <app-root>huy/qwer1@#$</app-root>
+  <!-- <script src="http://ontrackbot-codebuilddeploy-zpjvg07n9-webappbucket-1wgf4egm1vxtg.s3.amazonaws.com/lex-web-ui-loader.min.js"></script>
+<script>
+  var loaderOpts = {
+    baseUrl: 'http://ontrackbot-codebuilddeploy-zpjvg07n9-webappbucket-1wgf4egm1vxtg.s3.amazonaws.com/'
+
+  };
+  var loader = new ChatBotUiLoader.IframeLoader(loaderOpts);
+  loader.load()
+    .catch(function (error) { console.error(error); });
+</script> -->
+  <!-- https://portal.azure.com/#@iotminhnguyengmail.onmicrosoft.com/resource/subscriptions/370c4f9c-9370-496d-9267-85fe94a914b4/resourceGroups/AI/providers/Microsoft.BotService/botServices/AI-QnaMaker-Web/test -->
+  <script>
+    const styleOptions = {
+      botAvatarImage: 'https://docs.microsoft.com/en-us/azure/bot-service/v4sdk/media/logo_bot.svg?view=azure-bot-service-4.0',
+      botAvatarInitials: 'BF',
+      userAvatarImage: 'https://github.com/compulim.png?size=64',
+      userAvatarInitials: 'WC',
+      bubbleBackground: 'rgba(0, 0, 255, .1)',
+      bubbleFromUserBackground: 'rgba(0, 255, 0, .1)',
+      textContent: {
+        fontFamily: '\'Comic Sans MS\', \'Arial\', sans-serif',
+        fontWeight: 'bold'
+      },
+      hideSendBox: false,
+      hideUploadButton: false,
+    };
+
+    const markdownIt = window.markdownit();
+    const store = window.WebChat.createStore();
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', "https://webchat.botframework.com/api/tokens", true);
+    xhr.setRequestHeader('Authorization', 'BotConnector ' + 'gtfZ0JZPdcM.cwA.3gc.z7czsPjILusjvpHSpTi8M1BXPq-VcDzY6RTbDy6sr8c');
+    xhr.send();
+    xhr.onreadystatechange = processRequest;
+
+    function processRequest(e) {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        var token = JSON.parse(xhr.responseText);
+        window.WebChat.renderWebChat({
+          directLine: window.WebChat.createDirectLine({ token }),
+          renderMarkdown: markdownIt.render.bind(markdownIt),
+          webSpeechPonyfillFactory: window.WebChat.createBrowserWebSpeechPonyfillFactory({ token }),
+          styleOptions,
+          store,
+        }, document.getElementById('webchat'));
+      }
+    }
+
+  </script>
+<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body>
+
+</html>
